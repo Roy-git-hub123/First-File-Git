@@ -1,37 +1,41 @@
+// Calculator.java
 import java.util.Scanner;
 
 public class Calculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Simple Calculator");
+        System.out.println("1. Add");
+        System.out.println("2. Subtract");
+        System.out.println("3. Multiply");
+        System.out.println("4. Divide");
+
+        int choice = sc.nextInt();
         System.out.print("Enter first number: ");
-        double num1 = scanner.nextDouble();
-
+        double a = sc.nextDouble();
         System.out.print("Enter second number: ");
-        double num2 = scanner.nextDouble();
+        double b = sc.nextDouble();
 
-        System.out.println("Choose an operation: +, -, *, /");
-        char operator = scanner.next().charAt(0);
-
-        double result;
-
-        switch (operator) {
-            case '+':
-                result = num1 + num2;
+        switch (choice) {
+            case 1:
+                System.out.println("Result: " + (a + b));
                 break;
-
-            case '-':
-                result = num1 - num2;
+            case 2:
+                System.out.println("Result: " + (a - b));
                 break;
-
-            case '*':
-                result = num1 * num2;
+            case 3:
+                System.out.println("Result: " + (a * b));
                 break;
-
-            case '/':
-                if (num2 != 0) {
-                    result = num1 / num2;
-                } else {
-                    System.out.println("Error!
-
+            case 4:
+                if (b == 0)
+                    System.out.println("Error: Division by zero");
+                else
+                    System.out.println("Result: " + (a / b));
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+        sc.close();
+    }
+}
